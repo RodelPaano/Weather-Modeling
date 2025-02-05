@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Modeling</title>
+
+    <!-- Custom Layout stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- Activity 2 -->
+    <div class="container">
+        <h1>Activity 2</h1>
+        <h2>Weather Prediction Simulation</h2>
+
+        <label for="modelSelect">Select Simulation Model:</label>
+        <select name="modelSelect" id="modelSelect">
+            <option value="basic">Basic Weather Model</option>
+            <option value="advanced">Advanced Weather Model</option>
+        </select>
+
+        <label for="temInput">Enter Current Temperature:</label>
+        <input type="number" id="temInput" placeholder="Temperature in °C">
+
+        <label for="humidityInput">Enter Humidity (%):</label>
+        <input type="number" id="humidityInput" placeholder="Humidity in %">
+
+        <label for="windInput">Enter Wind Speed (km/h):</label>
+        <input type="number" id="windInput" placeholder="Wind Speed in km/h">
+
+        <button onclick="runSimulation()">Run Simulation</button>
+
+        <!-- Result Section -->
+        <div id="result">
+            <h3>Simulation Results:</h3>
+            <p id="resultOutput"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
