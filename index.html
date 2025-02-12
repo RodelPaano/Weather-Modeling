@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Modeling</title>
-
-    <!-- Custom Layout stylesheet -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Eastern Samar Weather Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Activity 2 -->
     <div class="container">
-        <h1>Activity 2</h1>
-        <h2>Weather Prediction Simulation</h2>
+        <h1> Eastern Samar Weather Simulation</h1>
 
-        <label for="modelSelect">Select Simulation Model:</label>
-        <select name="modelSelect" id="modelSelect">
-            <option value="basic">Basic Weather Model</option>
-            <option value="advanced">Advanced Weather Model</option>
+        <!-- Dropdown for Simulation Model Selection -->
+        <label for="modelSelect">Pili Hit Simulation Model:</label>
+        <select id="modelSelect">
+            <option value="temperature">Temperature Forecast</option>
+            <option value="rainfall">Rainfall Prediction</option>
+            <option value="health">Health Risk Simulation</option>
         </select>
 
-        <label for="temInput">Enter Current Temperature:</label>
-        <input type="number" id="temInput" placeholder="Temperature in °C">
+        <!-- Input Fields -->
+        <div id="inputFields">
+            <input type="text" id="cityInput" placeholder="Enter Municipality Name(ex., Mercedes)" required>
+            <input type="number" id="populationInput" placeholder="Enter Population Size (Optional)">
+        </div>
 
-        <label for="humidityInput">Enter Humidity (%):</label>
-        <input type="number" id="humidityInput" placeholder="Humidity in %">
-
-        <label for="windInput">Enter Wind Speed (km/h):</label>
-        <input type="number" id="windInput" placeholder="Wind Speed in km/h">
-
+        <!-- Run Simulation Button -->
         <button onclick="runSimulation()">Run Simulation</button>
 
-        <!-- Result Section -->
-        <div id="result">
-            <h3>Simulation Results:</h3>
-            <p id="resultOutput"></p>
+        <!-- Output Area -->
+        <div id="outputArea">
+            <h2>Simulation Results</h2>
+            <div id="results"></div>
+            <canvas id="resultsChart"></canvas>
         </div>
     </div>
 
     <script src="script.js"></script>
-    
 </body>
 </html>
