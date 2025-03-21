@@ -1,25 +1,113 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    margin: 0;
     padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out, background 0.5s ease;
 }
 
 .container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent to blend with background */
     padding: 20px;
     border-radius: 8px;
-    max-width: 600px;
+    max-width: 1000px;
     margin: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    transition: background-color 1s ease-in-out;
+}
+
+/* Weather-based styles */
+body.sunny {
+    background-image: url('https://source.unsplash.com/1600x900/?sunny,clear-sky');
+}
+
+body.rainy {
+    background-image: url('https://source.unsplash.com/1600x900/?rain,storm');
+}
+
+body.thunderstorm {
+    background-image: url('https://source.unsplash.com/1600x900/?thunderstorm,lightning');
+}
+
+/* Background Animations */
+.clear-sky {
+    background: linear-gradient(135deg, #87CEEB, #00BFFF);
+    animation: skyAnimation 10s infinite alternate;
+}
+
+.rainy-bg {
+    background: linear-gradient(135deg, #6C7A89, #2C3E50);
+    animation: rainAnimation 1s infinite;
+}
+
+.cloudy-bg {
+    background: linear-gradient(135deg, #BDC3C7, #2C3E50);
+    animation: cloudAnimation 10s infinite alternate;
+}
+
+.thunderstorm-bg {
+    background: linear-gradient(135deg, #2C3E50, #000000);
+    animation: thunderAnimation 5s infinite;
+}
+
+.windy-bg {
+    background: linear-gradient(135deg, #A9C9FF, #FFBBEC);
+    animation: windAnimation 5s infinite alternate;
+}
+
+.default-bg {
+    background: linear-gradient(135deg, #F0F0F0, #C0C0C0);
+}
+
+/* Keyframes for Animations */
+@keyframes skyAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes rainAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+@keyframes cloudAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes thunderAnimation {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes windAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Input Section */
+.input-section {
+    flex: 1;
+    padding-right: 10px;
+    min-width: 280px; /* Ensures input section doesn't get too small */
 }
 
 input, select, button {
-    width: 100%;
+    width: 100%; /* Full width for better responsiveness */
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-sizing: border-box; /* Prevents padding from affecting width */
 }
+
 h1 {
     text-align: center;
 }
@@ -35,10 +123,34 @@ button:hover {
     background-color: #0056b3;
 }
 
-#outputArea {
-    margin-top: 20px;
+/* Output Section */
+.output-section {
+    flex: 1;
+    margin-top: 0;
+    min-width: 280px;
+}
+
+#results {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 canvas {
     margin-top: 20px;
+    max-width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections on top of each other */
+        padding: 15px;
+    }
+
+    .input-section, .output-section {
+        padding-right: 0;
+    }
 }
