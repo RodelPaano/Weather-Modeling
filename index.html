@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eastern Samar Weather Simulation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1> Eastern Samar Weather Simulation</h1>
+      <!-- Input Section -->
+      <div class="input-section">
+        <h1>Eastern Samar Weather Simulation</h1>
 
-        <!-- Dropdown for Simulation Model Selection -->
-        <label for="modelSelect">Pili Hit Simulation Model:</label>
+        <!-- Dropdown para han Simulation Model Selection -->
+        <label for="modelSelect">Select Simulation Model:</label>
         <select id="modelSelect">
-            <option value="temperature">Temperature Forecast</option>
-            <option value="rainfall">Rainfall Prediction</option>
-            <option value="health">Health Risk Simulation</option>
+          <option value="temperature">Temperature Forecast</option>
+          <option value="rainfall">Rainfall Prediction</option>
+          <option value="health">Health Risk Simulation</option>
+          <option value="areasatrisk">Areas At Risk Simulation</option>
         </select>
 
         <!-- Input Fields -->
         <div id="inputFields">
-            <input type="text" id="cityInput" placeholder="Enter Municipality Name(ex., Mercedes)" required>
-            <input type="number" id="populationInput" placeholder="Enter Population Size (Optional)">
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Enter Municipality Name (e.g., Mercedes)"
+            required
+          />
+          <input
+            type="number"
+            id="populationInput"
+            placeholder="Enter Population Size (Optional)"
+          />
         </div>
 
         <!-- Run Simulation Button -->
         <button onclick="runSimulation()">Run Simulation</button>
+      </div>
 
-        <!-- Output Area -->
-        <div id="outputArea">
-            <h2>Simulation Results</h2>
-            <div id="results"></div>
-            <canvas id="resultsChart"></canvas>
-        </div>
+      <!-- Output Section -->
+      <div class="output-section">
+        <h2>Simulation Results</h2>
+        <div id="results"></div>
+        <canvas id="resultsChart"></canvas>
+        <canvas id="atRiskChart" width="400" height="200"></canvas>
+      </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
